@@ -1,6 +1,6 @@
 # brandon_pos
 
-A new Flutter project.
+A simple POS software made using flutter.
 
 ## Getting Started
 

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:brandon_pos/screens/homepage.dart';
+import 'package:brandon_pos/route_generator.dart';
 import 'package:provider/provider.dart';
 import 'package:brandon_pos/models/title_data.dart';
+import 'package:brandon_pos/models/category_data.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,10 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider(
           create: (context) => TitleData(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CategoryData(),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -22,7 +26,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: MyHomePage(),
+        initialRoute: '/',
+        onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );
   }
